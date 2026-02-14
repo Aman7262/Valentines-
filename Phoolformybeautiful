@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Digital Bouquet</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to bottom right, #fff9f2, #fffdf7);
+    overflow-x: hidden;
+    min-height: 100vh;
+    position: relative;
+}
+
+/* 🌻 Background Flowers */
+.bg-flower {
+    position: fixed;
+    width: 180px;
+    opacity: 0.15;
+    z-index: 0;
+    animation: float 8s ease-in-out infinite;
+}
+
+.sunflower-1 { top: 5%; left: 5%; }
+.sunflower-2 { bottom: 10%; right: 8%; animation-delay: 2s; }
+.lily-1 { top: 50%; left: 80%; animation-delay: 3s; }
+.lily-2 { bottom: 20%; left: 10%; animation-delay: 5s; }
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0px); }
+}
+
+/* 🌸 Main Card */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    position: relative;
+    z-index: 2;
+}
+
+.card {
+    background: white;
+    padding: 2rem;
+    max-width: 420px;
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: 0 10px 35px rgba(0,0,0,0.08);
+    text-align: center;
+    position: relative;
+}
+
+.card h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    color: #b45309;
+    margin-bottom: 1rem;
+}
+
+.card p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #444;
+    margin-bottom: 1.2rem;
+}
+
+.signature {
+    font-weight: 500;
+    color: #a16207;
+    margin-bottom: 1.5rem;
+}
+
+.buttons button {
+    background: linear-gradient(45deg, #f59e0b, #f97316);
+    border: none;
+    color: white;
+    padding: 0.7rem 1.4rem;
+    margin: 5px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: 0.3s ease;
+}
+
+.buttons button:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+}
+
+footer {
+    text-align: center;
+    padding: 15px;
+    font-size: 0.9rem;
+    color: #777;
+}
+
+/* 📱 Responsive */
+@media(max-width:480px) {
+    .card {
+        padding: 1.5rem;
+    }
+}
+</style>
+</head>
+<body>
+
+<!-- 🌻 Sunflowers -->
+<img src="https://upload.wikimedia.org/wikipedia/commons/4/40/Sunflower_sky_backdrop.jpg" class="bg-flower sunflower-1">
+<img src="https://upload.wikimedia.org/wikipedia/commons/4/40/Sunflower_sky_backdrop.jpg" class="bg-flower sunflower-2">
+
+<!-- 🤍 Lilies -->
+<img src="https://upload.wikimedia.org/wikipedia/commons/3/36/Lilium_candidum_1.jpg" class="bg-flower lily-1">
+<img src="https://upload.wikimedia.org/wikipedia/commons/3/36/Lilium_candidum_1.jpg" class="bg-flower lily-2">
+
+<div class="container">
+    <div class="card">
+        <h1>🌸 A Bouquet For You 🌻</h1>
+
+        <p>
+            Dear Preeti,<br><br>
+            I made this bouquet specially for you.  
+            Like sunflowers, you brighten my world.  
+            Like lilies, you bring peace to my heart. 💛
+        </p>
+
+        <div class="signature">— Aman</div>
+
+        <div class="buttons">
+            <button onclick="copyLink()">📋 Copy Link</button>
+            <button onclick="shareCard()">📤 Share</button>
+        </div>
+    </div>
+</div>
+
+<footer>
+    Made with 🤍, lilies & sunflowers
+</footer>
+
+<script>
+function copyLink() {
+    navigator.clipboard.writeText(window.location.href);
+    alert("Link copied!");
+}
+
+function shareCard() {
+    if (navigator.share) {
+        navigator.share({
+            title: "Digital Bouquet",
+            text: "I made this bouquet for you 🌸",
+            url: window.location.href
+        });
+    } else {
+        alert("Sharing not supported on this device.");
+    }
+}
+</script>
+
+</body>
+</html>
