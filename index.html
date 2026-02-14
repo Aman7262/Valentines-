@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Digital Bouquet</title>
+<title>For My Love 💛</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
 
@@ -12,13 +12,13 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    scroll-behavior: smooth;
 }
 
 body {
     font-family: 'Poppins', sans-serif;
     background: linear-gradient(to bottom right, #fff9f2, #fffdf7);
     overflow-x: hidden;
-    min-height: 100vh;
     position: relative;
 }
 
@@ -42,13 +42,14 @@ body {
     100% { transform: translateY(0px); }
 }
 
-/* 🌸 Main Card */
-.container {
+/* 🌸 Section Styling */
+.section {
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
-    padding: 20px;
+    padding: 40px 20px;
+    text-align: center;
     position: relative;
     z-index: 2;
 }
@@ -56,63 +57,61 @@ body {
 .card {
     background: white;
     padding: 2rem;
-    max-width: 420px;
-    width: 100%;
+    max-width: 500px;
     border-radius: 20px;
     box-shadow: 0 10px 35px rgba(0,0,0,0.08);
-    text-align: center;
-    position: relative;
 }
 
-.card h1 {
+h1 {
     font-family: 'Playfair Display', serif;
-    font-size: 2rem;
+    font-size: 2.2rem;
     color: #b45309;
     margin-bottom: 1rem;
 }
 
-.card p {
-    font-size: 1rem;
-    line-height: 1.6;
+p {
+    font-size: 1.05rem;
+    line-height: 1.7;
     color: #444;
-    margin-bottom: 1.2rem;
+    margin-bottom: 1rem;
 }
 
 .signature {
     font-weight: 500;
     color: #a16207;
-    margin-bottom: 1.5rem;
+    margin-top: 1rem;
 }
 
-.buttons button {
-    background: linear-gradient(45deg, #f59e0b, #f97316);
-    border: none;
-    color: white;
-    padding: 0.7rem 1.4rem;
-    margin: 5px;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 0.9rem;
-    transition: 0.3s ease;
+/* 💖 Valentine Section */
+.valentine {
+    background: linear-gradient(45deg, #fff1f2, #fff7ed);
 }
 
-.buttons button:hover {
-    transform: scale(1.05);
-    opacity: 0.9;
+.valentine h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    color: #be123c;
+    margin-bottom: 1rem;
+}
+
+.heart {
+    font-size: 2rem;
+    animation: heartbeat 1.5s infinite;
+}
+
+@keyframes heartbeat {
+    0% { transform: scale(1); }
+    25% { transform: scale(1.2); }
+    50% { transform: scale(1); }
+    75% { transform: scale(1.2); }
+    100% { transform: scale(1); }
 }
 
 footer {
     text-align: center;
-    padding: 15px;
+    padding: 20px;
     font-size: 0.9rem;
     color: #777;
-}
-
-/* 📱 Responsive */
-@media(max-width:480px) {
-    .card {
-        padding: 1.5rem;
-    }
 }
 </style>
 </head>
@@ -126,48 +125,40 @@ footer {
 <img src="https://upload.wikimedia.org/wikipedia/commons/3/36/Lilium_candidum_1.jpg" class="bg-flower lily-1">
 <img src="https://upload.wikimedia.org/wikipedia/commons/3/36/Lilium_candidum_1.jpg" class="bg-flower lily-2">
 
-<div class="container">
+<!-- 🌸 First Section -->
+<section class="section">
     <div class="card">
         <h1>🌸 A Bouquet For You 🌻</h1>
-
         <p>
             Dear Preeti,<br><br>
-            I made this bouquet specially for you.  
-            Like sunflowers, you brighten my world.  
-            Like lilies, you bring peace to my heart. 💛
+            Like sunflowers, you brighten my darkest days.  
+            Like lilies, you bring calm and peace into my life.  
+            Every moment with you feels special, warm, and magical. 💛
         </p>
-
         <div class="signature">— Aman</div>
-
-        <div class="buttons">
-            <button onclick="copyLink()">📋 Copy Link</button>
-            <button onclick="shareCard()">📤 Share</button>
-        </div>
     </div>
-</div>
+</section>
+
+<!-- 💖 Valentine Section -->
+<section class="section valentine">
+    <div class="card">
+        <h2>Happy Valentine's Day My Love ❤️</h2>
+        <p>
+            You are my sunshine, my peace, my happiness.  
+            Thank you for choosing me every single day.  
+            I promise to stand by you, support you, and love you endlessly.
+        </p>
+        <p>
+            No matter where life takes us,  
+            I want to walk that journey with you. 🌹
+        </p>
+        <div class="heart">💖</div>
+    </div>
+</section>
 
 <footer>
-    Made with 🤍, lilies & sunflowers
+    Made with love, lilies & sunflowers 🤍🌻
 </footer>
-
-<script>
-function copyLink() {
-    navigator.clipboard.writeText(window.location.href);
-    alert("Link copied!");
-}
-
-function shareCard() {
-    if (navigator.share) {
-        navigator.share({
-            title: "Digital Bouquet",
-            text: "I made this bouquet for you 🌸",
-            url: window.location.href
-        });
-    } else {
-        alert("Sharing not supported on this device.");
-    }
-}
-</script>
 
 </body>
 </html>
